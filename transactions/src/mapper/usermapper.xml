@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.Operation">
+
+<!-- goods service 所需操作 -->
+
+<select id="show_goods_info"  parameterType="String" resultMap="goods_info">
+select *from goods_info where goods_id=#{value}
+</select>
+
+<select id="show_goods_comment"  parameterType="String" resultMap="goods_comment">
+select user_id,comment_time,content,score from goods_comment where goods_id=#{value}
+</select>
+
+<resultMap type="goods_info" id="goods_info">
+<result property="goods_name" column="goods_name"/>
+<result property="goods_id" column="goods_id"/>
+<result property="pre_price" column="pre_price"/>
+<result property="rel_price" column="rel_price"/>
+<result property="sales" column="sales"/>
+<result property="image_path" column="image_path"/>
+<result property="details_path" column="details_path"/>
+</resultMap>
+
+<resultMap type="Comment" id="goods_comment">
+<result property="user_id" column="user_id"/>
+<result property="comment_time" column="comment_time"/>
+<result property="content" column="content"/>
+<result property="score" column="score"/>
+</resultMap>
+
+<!-- 展示订单 所需操作 -->
+
+<select id="show_order" parameterType="String" resultMap="show_order">
+select image_path, goods_name,rel_price from goods_info where goods_id=#{value}
+</select>
+
+<select id="show_address" parameterType="String" resultMap="show_address">
+select * from address where user_id=#{value}
+</select>
+
+<insert id="add_address" parameterType="address">
+insert into address(user_id,province,city,area,details,name,telephone,address_id) values(#{user_id},#{provinces},#{city},#{country},#{street},#{name},#{telephone},#{address_id})
+</insert>
+
+<resultMap type="goods_info" id="show_order">
+<result property="goods_name" column="goods_name"/>
+<result property="image_path" column="image_path"/>
+<result property="rel_price" column="rel_price"/>
+</resultMap>
+
+<resultMap type="address" id="show_address">
+<result property="user_id" column="user_id"/>
+<result property="address_id" column="address_id"/>
+<result property="name" column="name"/>
+<result property="telephone" column="telephone"/>
+<result property="provinces" column="province"/>
+<result property="city" column="city"/>
+<result property="country" column="area"/>
+<result property="street" column="details"/>
+</resultMap>
+
+<!-- 生成订单 所需操作 -->
+
+<insert id="insert_order" parameterType="order">
+insert into orders(order_id,user_id,address_id,pay_state,create_time,money) values(#{order_id},#{user_id},#{address_id},#{pay_state},#{create_time},#{money})
+</insert>
+
+<insert id="insert_order_info" parameterType="order_info">
+insert into orders_info(orders_id,goods_num,goods_id) values(#{order_id},#{goods_num},#{goods_id})
+</insert>
+
+<!-- 寻找类别id -->
+<select id="show_category" parameterType="String" resultType="java.lang.String">
+select category_id from goods_categories where goods_id=#{value}
+</select>
+
+<!-- 寻找类别名字 -->
+<select id="show_category_name" parameterType="String" resultType="String">
+select category_name from categories where category_id=#{value}
+</select>
+</mapper>

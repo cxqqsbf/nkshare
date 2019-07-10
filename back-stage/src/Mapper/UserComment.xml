@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.UserCommentMapper">
+
+<select id="selectUserComment" resultMap="CommentResultMap">
+select * from goods_comment
+</select>
+
+<resultMap type="usercomment" id="CommentResultMap">
+<id property="comment_id" column="comment_id"/>
+<result property="user_id" column="user_id"/>
+<result property="goods_id" column="goods_id"/>
+<result property="comment_time" column="comment_time"/>
+<result property="content" column="content"/>
+<result property="score" column="score"/>
+<association property="goods_name" column="goods_id" select="selectGoodsNamebyId" javaType="String">
+</association>
+</resultMap>
+
+<select id="selectGoodsNamebyId" parameterType="String" resultType="String">
+select goods_name from goods_info where goods_id= #{goods_id}
+</select>
+
+<select id="selectGoodsbyName" parameterType="String" resultType="goods_info">
+select * from goods_info where goods_name= #{goods_name}
+</select>
+
+<select id="selectUserCommentbyId" resultMap="CommentResultMap">
+select * from goods_comment where goods_id= #{goods_id}
+</select>
+
+<select id="selectUserCommentbyTime" parameterType="String" resultMap="CommentResultMap">
+select * from goods_comment where comment_time= #{comment_time}
+</select>
+
+<select id="selectUserCommentbyUser" parameterType="String" resultMap="CommentResultMap">
+select * from goods_comment where user_id= #{user_id}
+</select>
+
+<delete id="deleteComments" parameterType="String">
+delete from goods_comment where comment_id= #{comment_id}
+</delete>
+</mapper>

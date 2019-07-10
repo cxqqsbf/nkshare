@@ -1,0 +1,311 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../img/background_1.jpg);/*1920*1080*/
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+div#header {
+	width: 100%;
+	height: 100px;
+	padding: 0px;
+	margin: 0px auto;
+}
+div#header div#navagition {
+	float: left;
+	width: 1200px;
+	margin-left: 150px;
+	margin-bottom: 5px;
+	margin-top: 40px;
+	padding: 0px;
+	text-align: left;
+	background-image: url(../img/bigtitlebackground.jpg);
+	border-radius: 10px;
+}
+div#header div#navagition ul#navagition_ul {
+	list-style-type: none;
+	margin-top: 0px;
+	margin-left: 0px;
+	padding: 0px;
+}
+div#header div#navagition ul#navagition_ul li {
+	float: left;
+	padding: 0px;
+	margin-right: 50px;
+	margin-top: 5px;
+	list-style-type: none;
+}
+div#header div#navagition ul#navagition_ul li a {
+	font-family: "楷体";
+	font-size: 2em;
+	color: black;
+	text-decoration: none;
+}
+div#header div#search input::-webkit-input-placeholder{ /*WebKit browsers*/
+	font-family: "仿宋";
+	font-size: 1.1em;
+}
+div#header div#search input::-moz-input-placeholder{ /*Mozilla Firefox*/
+	font-family: "仿宋";
+	font-size: 1.1em;
+}
+div#header div#search input::-ms-input-placeholder{ /*Internet Explorer*/ 
+	font-family: "仿宋";
+	font-size: 1.1em;
+}
+
+header-search {
+	width: 1000px;
+	height: 100px;
+	margin: 0 auto;
+	padding: 30px 0
+}
+
+.header-search .logo-text {
+	float: left;
+	display: block;
+	width: 70px;
+	height: 70px;
+	margin-top: -15px;
+	line-height: 35px;
+	font-size: 0
+}
+
+.header-search .logo-text img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%
+}
+
+.header-search .search-box {
+	float: right;
+	width: auto;
+	height: 40px;
+	margin-right: 0
+}
+
+.header-search .search-box .search-con {
+	position: relative;
+	float: left;
+	width: 688px;
+	height: 40px;
+	border: 2px solid #8c222c
+}
+
+.header-search .search-box .search-con .search-put {
+	float: left;
+	position: relative;
+	width: 516px;
+	height: 36px
+}
+
+.header-search .search-box .search-con .search-put input {
+	width: 516px;
+	height: 36px;
+	padding: 10px;
+	line-height: 16px;
+	font-size: 18px;
+	color: #333;
+	border: none
+}
+
+.header-search .search-box .search-con .search-put .sug-box {
+	display: none;
+	position: absolute;
+	top: 36px;
+	left: 0;
+	z-index: 100000;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #ccc
+}
+
+.header-search .search-box .search-con .search-put .sug-box .title {
+	width: 100%;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #9c9c9c
+}
+
+.header-search .search-box .search-con .search-put .sug-box .sug-item {
+	width: 100%;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer
+}
+
+.header-search .search-box .search-con .search-put .sug-box .sug-item .clear-btn {
+	float: right;
+	font-size: 16px;
+	font-weight: 600;
+	color: #666
+}
+
+.header-search .search-box .search-con .search-put .sug-box .sug-item .clear-btn:hover {
+	color: #8c222c
+}
+
+.header-search .search-box .search-con .search-put .sug-box .sug-item.active,
+.header-search .search-box .search-con .search-put .sug-box .sug-item:hover {
+	background-color: #eee
+}
+
+.header-search .search-box .search-con .search-put .sug-box .sug-item.blue {
+	color: #365899
+}
+
+.header-search .search-box .search-con .search-put .gray9 {
+	color: #999
+}
+
+.header-search .search-box .search-con .drop-down-status {
+	position: relative;
+	float: left;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #666;
+	background-color: #eee;
+	cursor: pointer
+}
+
+.header-search .search-box .search-con .drop-down-status .cur-status {
+	position: relative;
+	z-index: 15;
+	padding-left: 9px;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	background-color: #fafafa;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.header-search .search-box .search-con .drop-down-status .cur-status .iconfont {
+	position: absolute;
+	top: 0;
+	right: 8px;
+	color: #999
+}
+
+.header-search .search-box .search-con .drop-down-status .cur-status .icon-shangshou {
+	left: auto;
+	right: 8px;
+	display: none
+}
+
+.header-search .search-box .search-con .drop-down-status .cur-status.striking,
+.header-search .search-box .search-con .drop-down-status .cur-status.striking .iconfont {
+	color: #bf7f5f
+}
+
+.header-search .search-box .search-con .drop-down-status .status-other {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 35px;
+	left: 0;
+	z-index: 10;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+	font-size: 16px;
+	font-weight: 600;
+	background: #fff
+}
+
+.header-search .search-box .search-con .drop-down-status .status-other .item {
+	height: 36px;
+	padding-left: 18px
+}
+
+.header-search .search-box .search-con .drop-down-status .status-other .item:hover,
+.header-search .search-box .search-con .drop-down-status.show .cur-status {
+	background-color: #fafafa
+}
+
+.header-search .search-box .search-con .drop-down-status.show .cur-status .icon-xiala {
+	display: none
+}
+
+.header-search .search-box .search-con .drop-down-status.show .cur-status .icon-shangshou,
+.header-search .search-box .search-con .drop-down-status.show .status-other {
+	display: block
+}
+
+.header-search .search-box .search-con .btn {
+	float: left;
+	width: 88px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	border-radius: 0;
+	background-color: #8c222c;
+	cursor: pointer
+}
+
+.header-search .search-box .search-con .btn:hover {
+	background-color: #7b111b
+}
+
+.header-search .search-box .search-link {
+	float: left;
+	width: 35px;
+	height: 40px;
+	padding-top: 4px;
+	line-height: 16px;
+	font-size: 18px;
+	font-weight: 600;
+	font-weight: 500;
+	color: #666;
+	text-align: right
+}
+
+.header-search .search-box .search-link a {
+	color: #666
+}
+
+.header-search .search-box .search-link a:hover {
+	color: #8c222c
+}
+
+@media screen and (min-width:1200px) {
+	.header-search {
+		width: 1200px!important
+	}
+	.header-search .search-box {
+		margin-right: 200px
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

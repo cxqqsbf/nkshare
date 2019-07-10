@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.Operation">
+
+<insert id="insert_goods" parameterType="goods_info">
+insert into goods_info(goods_id,goods_name,pre_price,rel_price,details_path,image_path,user_id) values(#{goods_id},#{goods_name},#{pre_price},#{rel_price},#{details_path},#{image_path},#{user_id})
+</insert>
+
+<insert id="insert_goods_category" parameterType="goods_category">
+insert into goods_categories(goods_id,category_id,category_name) values(#{goods_id},#{category_id},#{category_name})
+</insert>
+
+<!-- 展示类别 -->
+
+<select id="show_category" resultMap="Category">
+select * from categories
+</select>
+
+<resultMap type="category" id="Category">
+<result property="category_id" column="category_id"/>
+<result property="category_name" column="category_name"/>
+</resultMap>
+
+<!-- 展示管理员 -->
+
+<select id="show_admin" resultMap="show_admin">
+select admin_id,nickname,telephone,email from admin_info
+</select>
+
+<resultMap type="admin_info" id="show_admin">
+<result property="admin_id" column="admin_id"/>
+<result property="telephone" column="telephone"/>
+<result property="email" column="email"/>
+<result property="nickname" column="nickname"/>
+</resultMap>
+
+<!-- 展示商品数量 -->
+<select id="show_goods_num" resultType="java.lang.String">
+select goods_id from goods_info
+</select>
+
+<!-- 插入管理员信息 -->
+<insert id="insert_admin" parameterType="admin_info">
+insert into admin_info(telephone,email,password,nickname,admin_id) values(#{telephone},#{email},#{password},#{nickname},#{admin_id})
+</insert>
+
+<!-- 取出管理员密码 -->
+<select id="show_password" parameterType="String" resultType="String">
+select password from admin_info where nickname=#{value}
+</select>
+</mapper>

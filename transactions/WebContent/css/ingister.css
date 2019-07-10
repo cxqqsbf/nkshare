@@ -1,0 +1,44 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+fieldset,img {border:0; }
+ol,ul {list-style:none; }
+h1,h2,h3,h4,h5,h6,button,input,select,textarea {font-size:100%;}
+body{ font-size:14px;}
+a{color: #313131;text-decoration: none; }
+a:hover{text-decoration: underline;}
+a:active, a:focus{outline:none background-color:white}
+
+.cxq{float:left width:100%; height:auto;}
+.cxq .str{ position:absolute; top:40%; left:50%; width:700px; height:568px; margin-left:-300px; margin-top:-239px;}
+.cxq .str .zc{width:700px; height:608px;}
+.cxq .str .zc .bj_bai{ float:left; width:434px; height:650px; padding-left:0px;}
+.cxq .str .zc .bj_bai h3{ font:16px/70px "微软雅黑", "黑体" ; color:#333333; width:270px; text-align:center;}
+.cxq .str .zc .bj_right{ float:left;width:185px; height:548px;padding-left: 50px; background:#f8f8f8;}
+.cxq .str .zc .bj_bai .kuang_txt{ width:286px; height:42px; border:1px solid #dddddd; line-height:32px; padding-left:0px; color:black; margin-bottom:40px;font-size: 18px;font-family:'楷体';}
+.cxq .str .zc .bj_bai .phone{background: url(../img/showbackground.jpg);background-repeat: no-repeat;background-size: 286px 42px;}
+.cxq .str .zc .bj_bai .name{background: url(../img/showbackground.jpg);background-repeat: no-repeat;background-size: 286px 42px;}
+.cxq .str .zc .bj_bai .email{background: url(../img/showbackground.jpg);background-repeat: no-repeat;background-size: 286px 42px;}
+.cxq .str .zc .bj_bai .password{background: url(../img/showbackground.jpg);background-repeat: no-repeat;background-size: 286px 42px;}
+.cxq .str .zc .bj_bai .checkword{background: url(../img/showbackground.jpg);background-repeat: no-repeat;background-size: 286px 42px;}
+.cxq .str .zc .bj_bai .hui_kuang{ float:left; width:97px; height:31px; border:1px solid #dddddd;}
+.cxq .str .zc .bj_bai .shuaxin{ float:left; margin:0px 0 0 150px; width:14px; height:14px;}
+.cxq .str .zc .bj_bai p{text-align:right; font-family: "楷体";}
+.cxq .str .zc .bj_bai div{ float:left; width:100%; line-height:43px;}
+.cxq .str .zc .bj_bai div span{padding-left:5px;}
+.cxq .str .zc .bj_bai div input{ float:left; margin-top:15px;}
+.cxq .str .zc .bj_bai div .lan{ color:#19aaf8; padding-left:0px;}
+.cxq .str .zc .bj_right P { width:135px; font:12px/60px ""; color:#999999;}
+.cxq .str .zc .bj_right P a{ color:#37b5f9;}
+.cxq .str .zc .bj_right > a{ float:left; width:82px; height:28px; padding-left:51px; line-height:28px; margin-bottom:12px; border-radius:50px; }
+.cxq .str .zc .bj_right ._qq{border:1px solid #37b5f9; color:#37b5f9; background: url(../img/zc_03.jpg) no-repeat 28px 7px #fff;}
+.cxq .str .zc .bj_right ._wb{border:1px solid #f26d7e; color:#f26d7e; background: url(../img/zc_10.jpg) no-repeat 28px 7px #fff;}
+.cxq .str .zc .bj_right ._wx{ border:1px solid #00c800; color:#00c800; background: url(../img/zc_15.jpg) no-repeat 28px 7px #fff;}
+.cxq .str .zc .bj_bai .btn_zhuce{ width:270px; height:33px; background:#37b5f9; font-size:14px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}
+
+.kaiti{font-size: 18px;font-family: "楷体";}
+
+.cxq .str .zc .deng_bai{position:absolute; top:20%; left:10%;float:left; width:444px; height:400px; padding-left:40px; }
+.cxq .str .zc .deng_bai h2{font:20px/70px "楷体", "楷体"; color:blue; width:270px; text-align: left;}
+.cxq .str .zc .deng_bai .deng_txt{ width:276px; height:35px; border:1px solid #dddddd; line-height:32px; padding-left:0px; color:#b1a9a9;  margin-bottom:20px;}
+.cxq .str .zc .deng_bai .name{ background: url(../img/showbackground.jpg); background-repeat: no-repeat;background-size: 276px 35px;margin-right: 40px;margin-bottom:30px;font-family: '楷体';}
+.cxq .str .zc .deng_bai .password{background: url(../img/showbackground.jpg); background-repeat: no-repeat;background-size: 276px 35px; margin-right: 40px;font-family: '楷体';}
+.cxq .str .zc .deng_bai .btn_deng{ width:270px; height:33px; background:#37b5f9; font-size:20px; line-height:33px; text-align:center; border:0px; color:#fff; border-radius:3px; cursor:pointer;}

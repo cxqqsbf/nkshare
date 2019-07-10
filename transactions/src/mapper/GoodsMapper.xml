@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.GoodsMapper">
+
+<resultMap type="goodss" id="goodsMap">
+<id column="goods_id" property="goods_id"/>
+<result column="goods_name" property="goods_name"/>
+<result column="rel_price" property="rel_price"/>
+<result column="image_path" property="image_path"/>
+<result column="detailes_path" property="details_path"/>
+</resultMap>
+
+<select id="selectGoods" resultMap="goodsMap">
+select goods_id,goods_name,rel_price,image_path,details_path from goods_info
+</select>
+</mapper>

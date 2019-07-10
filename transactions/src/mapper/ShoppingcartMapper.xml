@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.ShoppingcartMapper">
+
+	<resultMap type="Shoppingcart" id="shoppingcartMap">
+		<result column="goods_id" property="goods_id"/>
+		<result column="goods_num" property="goods_num"/>
+		<collection property="goodssList" javaType ="ArrayList" column="goods_id" ofType="goods_info"
+		select="com.nkshare.dao.ShoppingcartMapper.selectGoodssById" fetchType="lazy">
+		<id property="goods_id" column ="goods_id"/>
+		<result property="goods_id" column="goods_id"/>
+		<result property="goods_name" column ="goods_name"/>
+		<result property="pre_price" column="pre_price"/>
+		<result property="rel_price" column="rel_price"/>
+		<result property="sales" column="sales"/>
+		<result property="image_path" column="image_path"/>
+		<result property="details_path" column="details_path"/>
+		<result property="user_id" column="user_id"/>
+		</collection>
+		<collection property="categoriesList" javaType ="ArrayList" column="goods_id" ofType="categories" 
+		select="com.nkshare.dao.CategoriesMapper.selectCategoriesByGoodsId" fetchType="lazy">
+		<id property="goods_id" column ="goods_id"/>
+		<result property="category_name" column="category_name"/>
+		</collection>
+	</resultMap>
+	
+	<select id="selectGoodssById" parameterType="String" resultType="goods_info">
+		select * from goods_info where goods_id = #{goods_id}
+	</select>
+	
+	<select id="selectShoppingcart" parameterType="shoppingcart" resultMap="shoppingcartMap">
+		<!-- select s.goods_id,s.goods_num,b.goods_name,b.rel_price,b.details_path,b.image_path,b.user_id from shoppingcart s
+		join goodss b
+		on b.goods_id=s.goods_id
+		where s.user_id=#{user_id} -->
+		select * from shoppingcarts where user_id=#{user_id}
+	</select>
+	
+	<update id="updateGoods_num" parameterType="shoppingcart">
+		update shoppingcarts set goods_num=#{goods_num} where user_id=#{user_id} and goods_id=#{goods_id}
+	</update>
+	
+	<delete id="deleteShoppingcart" parameterType="shoppingcart">
+		delete from shoppingcarts where user_id=#{user_id} and goods_id=#{goods_id}
+	</delete>
+	
+	<insert id="insertShoppingcart" parameterType="shoppingcart">
+		insert into shoppingcarts(user_id,goods_id,goods_num) values (#{user_id},#{goods_id},#{goods_num})
+	</insert>
+	
+	<select id="selectGoods_num" parameterType="shoppingcart" resultType="String">
+		select goods_num from shoppingcarts where user_id=#{user_id} and goods_id=#{goods_id}
+	</select>
+	
+</mapper>

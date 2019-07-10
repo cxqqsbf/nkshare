@@ -1,0 +1,277 @@
+@charset "utf-8";
+/* CSS Document */
+div#content {
+	clear:both;
+	width: 1300px;
+	height: auto;
+	padding: 0px;
+	margin-left: 150px;
+}
+div#content div#category {
+	float: left;
+	width: 250px;
+	height: 400px;
+	margin-right: 50px;
+	padding: 0px;
+}
+div#content div#category div#categoryhead {	
+	width: 250px;
+	height: 40px;
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/t1.jpg) left top no-repeat;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+div#content div#category div#categoryhead div#titlepic {
+	float: left;
+	width: 41px; 
+	height: 40px; 
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/titlepic.png) left top no-repeat;
+}
+div#content div#category div#categoryhead div#titleword {
+	float: left;
+	margin: 0px;
+	margin-left: 109px;
+	height: 40px;
+	width: 100px;
+	padding: 0px;
+	font-family: "楷体";
+	font-weight: bold;
+	font-size: 1.2em;
+	line-height: 40px;
+	text-align: right;
+}
+div#content div#category div#categorycontent {
+	width: 250px;
+	height: 425px;
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/categorybackground.jpg) left top repeat;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.ul {
+	position: relative;
+	/*width: 75px;*/
+	height: auto;
+	margin: 0px;
+	padding: 10px 0px 10px 15px;
+} 
+.ul li {
+	height: 24px;
+	line-height: 24px;
+	border-bottom: 1px solid #ddd;
+	/*text-align: center;*/
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+.ul li a {
+	display: block;
+	color: #000;
+	font-size: 17px;
+	font-family: "楷体";
+	text-decoration: none;
+}
+.ul li a:hover{
+	display: block;
+	font-family: "楷体";
+	color: #fff;
+	text-decoration: none;
+}
+.ul li div {
+	display: none;
+	width: 160px; 
+	height: auto;
+	position: absolute;
+	top: 10px;
+	left: 90px;
+	color: #000;
+	font-family: "楷体";
+}
+.ul li div dl {
+	margin: 0px;
+	height: auto;
+}
+.ul li div dl dd {
+	float: left; 
+	width: 75px;
+	margin: 0px;
+}
+.ul .liname div {
+	display: block;
+	width: 160px; 
+	height: auto;
+	position: absolute;
+	top: 10px;
+	left: 130px;
+	color: #000;
+	font-family: "楷体";
+}
+div#content div#show {
+	float: left;
+	width: 900px;
+	height: 215px;
+	margin: 0px;
+	padding: 0px;
+	background-image: url(../img/showback.jpg);
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.scroll {
+	overflow: hidden;
+	width: 900px;
+    margin: 0px;
+	padding: 0px;
+    position: relative;
+}
+.scrollContainer {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+.scrollContainer div.panel {
+    padding: 10px;
+    width: 130px;
+	height: 195px;
+}
+.inside {
+	padding: 10px;
+	border: 1px solid #999;
+}
+.inside img {
+	display: block;
+	border: 1px solid #666;
+	margin: 0 0 10px 0;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+}
+.inside h2 {
+	font-weight: normal;
+	color: #111;
+	font-size: 12px;
+	margin: 0 0 4px 0;
+	font-family: "楷体";
+}
+.inside p {
+	font-size: 11px;
+	color: #ccc;
+	font-family: "楷体";
+	margin: 0px;
+}
+.scrollButtons {
+    position: relative;
+    top: 107px;
+    cursor: pointer;
+}
+.scrollButtons.left {
+    left: -30px;
+}
+.scrollButtons.right {
+    right: -30px;
+}
+.hide {
+    display: none;
+}
+
+.container {
+	float: left;
+	position: relative;
+	width: 900px;
+	height: 220px;
+	margin: 0px;
+	padding: 0px;
+	border-radius: 10px;
+	margin:25px auto 0 auto;
+	box-shadow: 0 0 5px #BDCBDA;
+	overflow: hidden;
+	background-image: url(../img/微信图片_20180807203154.jpg);
+}
+
+.container .wrap {
+	position: absolute;
+	width: 6300px;
+	height: 220px;
+	z-index: 1;
+}
+
+.container .wrap img {
+	float: left;
+	width: 900px;
+	height: 200px;
+	margin-top: 20px;
+}
+
+.container .buttons {
+	margin-right: 5px;
+	margin-bottom: 40px;
+	width: 150px;
+	height: 10px;
+	z-index: 2;
+}
+
+.container .buttons span {
+	margin-left: 5px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #BDCBDA;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+.container .buttons span.on {
+	background-color: red;
+}
+
+.container .arrow {
+	position: absolute;
+	top: 30%;
+	color: green;
+	padding: 0px 14px;
+	border-radius: 50%;
+	font-size: 50px;
+	z-index: 2;
+	display: none;
+}
+
+.container .arrow_left {
+	left: 10px;
+}
+
+.container .arrow_right {
+	right: 10px;
+}
+
+.container:hover .arrow {
+	display: block;
+}
+
+.container .arrow:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.index_xinshushu {
+	float: left;
+/*	margin-top: 900px;*/
+}
+.index_xinshu {
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.AddressMapper">
+
+<insert id="insertAddress" parameterType="myAddress" useGeneratedKeys="true">
+insert into address(user_id,address_id,name,telephone,province,city,details) values(#{user_id},#{address_id},#{name},#{telephone},#{province},#{city},#{details})
+</insert>
+
+<select id="selectAddress" parameterType="String" resultType="myAddress">
+select * from address where user_id = #{user_id}
+</select>
+
+<delete id="deleteAddress" parameterType="String">
+	delete from address where address_id = #{address_id}
+</delete>
+
+<update id="updateAddress" parameterType="myAddress">
+	update address set name=#{name},telephone=#{telephone},province=#{province},city=#{city},details=#{details}
+</update>
+</mapper>

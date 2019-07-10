@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.CommentMapper">
+
+<insert id="insertComment" parameterType="comment" useGeneratedKeys="true">
+insert into goods_comment (comment_id,user_id,goods_id,comment_time,content,score) values(#{comment_id},#{user_id},#{goods_id},#{comment_time},#{content},#{score})
+</insert>
+
+<select id="selectUserComment" parameterType="String" resultType="Comment">
+select * from goods_comment where user_id = #{user_id}
+</select>
+
+<select id="selectGoodsComment" parameterType="String" resultType="Comment">
+select * from goods_comment where goods_id = #{goods_id}
+</select>
+
+<delete id="deleteComment" parameterType="String">
+delete from goods_comment where comment_id = #{comment_id}
+</delete>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.CategoriesMapper">
+
+<select id="selectCategoriesByGoodsId" parameterType="String" resultType="categories">
+select * from goods_categories where goods_id = #{id} 
+</select>
+
+<select id="selectCategoriesByName" parameterType="goodssearch" resultType="categories">
+select * from goods_categories where category_name like CONCAT(CONCAT('%',#{searchWord}),'%')
+</select>
+</mapper>

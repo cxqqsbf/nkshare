@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.GoodssMapper">
+
+<resultMap type="goodss" id="goodssResultMap">
+<id property="goods_name" column ="goods_name"/>
+<result property="goods_id" column="goods_id"/>
+<result property="goods_name" column ="goods_name"/>
+<result property="pre_price" column="pre_price"/>
+<result property="rel_price" column="rel_price"/>
+<result property="sales" column="sales"/>
+<result property="image_path" column="image_path"/>
+<result property="details_path" column="details_path"/>
+<result property="user_id" column="user_id"/>
+<collection property="categoriesList" javaType ="ArrayList" column="goods_id" ofType="categories" 
+select="com.nkshare.dao.CategoriesMapper.selectCategoriesByGoodsId" fetchType="lazy">
+<id property="goods_id" column ="goods_id"/>
+<result property="category_name" column="category_name"/>
+</collection>
+</resultMap>
+
+<select id="selectGoodssByName" parameterType="goodssearch" resultMap="goodssResultMap">
+select * from goods_info where goods_name like CONCAT(CONCAT('%',#{searchWord}),'%') 
+<if test="null != sortName and '' != sortName">
+	order by ${sortName} 
+</if>
+<if test="sortWay=='2'">
+	DESC
+</if>
+</select>
+<select id="selectGoodssByUserId" parameterType="goodssearch" resultMap="goodssResultMap">
+select * from goods_info where user_id like CONCAT(CONCAT('%',#{searchWord}),'%') 
+</select>
+<resultMap type="goodss" id="goodssResultMap2">
+<id property="goods_id" column ="goods_id"/>
+<result property="goods_id" column="goods_id"/>
+<result property="goods_name" column ="goods_name"/>
+<result property="pre_price" column="pre_price"/>
+<result property="rel_price" column="rel_price"/>
+<result property="sales" column="sales"/>
+<result property="image_path" column="image_path"/>
+<result property="details_path" column="details_path"/>
+<result property="user_id" column="user_id"/>
+<collection property="categoriesList" javaType ="ArrayList" column="goods_id" ofType="categories" 
+select="com.nkshare.dao.CategoriesMapper.selectCategoriesByGoodsId" fetchType="lazy">
+<id property="goods_id" column ="goods_id"/>
+<result property="category_name" column="category_name"/>
+</collection>
+</resultMap>
+
+<select id="selectGoodssById" parameterType="String" resultMap="goodssResultMap2">
+select * from goods_info where goods_id = #{goods_id} 
+<!-- <if test="null != #{1} and '' != #{1}">
+	order by #{1} 
+</if>
+<if test="#{2}=='2'">
+	DESC
+</if> -->
+</select>
+</mapper>

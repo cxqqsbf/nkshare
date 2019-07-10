@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.UserMapper">
+
+<select id="selectUser" parameterType="String" resultType="user">
+select * from user_info where user_id =#{user_id}
+</select>
+
+<update id="updateUser" parameterType="user" >
+update user_info set nickname = #{nickname},gender = #{gender}, birthday=#{birthday},telephone=#{telephone},email=#{email}
+where user_id= #{user_id}
+</update>
+
+<update id="updatePwd" parameterType="user" >
+update user_info set password = #{password} 
+where user_id= #{user_id}
+</update>
+
+<insert id="insertUser" parameterType="user">
+insert into user_info(user_id,telephone,email,password) values(#{user_id},#{telephone},#{email},#{password})
+</insert>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nkshare.dao.OrderMapper">
+
+<resultMap type="Order" id="orderMap">
+<id column="order_id" property="order_id" />
+<result column="pay_state" property="pay_state"/>
+<result column="create_time" property="create_time" />
+<result column="money" property="money"/>
+<collection property="orders_info" javaType ="ArrayList" column="order_id" ofType="orders_infoMap" select="com.nkshare.dao.OrderMapper.selectOrderInfoById" fetchType="lazy">
+<id property="order_id" column ="order_id"/>
+<result column="goods_num" property="goods_num"/>
+<association property="goodss" column="goods_id" select="com.nkshare.dao.OrderMapper.selectGoodsById" javaType="goods_info">
+<id property="goods_id" column ="goods_id"/>
+<result column="goods_name" property="goods_name"/>
+<result column="rel_price" property="rel_price"/>
+<result column="details_path" property="details_path"/>
+<result column="image_path" property="image_path"/>
+</association>
+</collection>
+</resultMap>
+
+<resultMap type="orders_info" id="orders_infoMap">
+<id column="order_id" property="order_id" />
+<result column="goods_id" property="goods_id"/>
+<result column="goods_num" property="goods_num"/>
+<association property="goodss" column="goods_id" select="com.nkshare.dao.OrderMapper.selectGoodsById" javaType="goods_info">
+<id property="goods_id" column ="goods_id"/>
+<result column="goods_id" property="goods_id"/>
+<result column="goods_name" property="goods_name"/>
+<result column="rel_price" property="rel_price"/>
+<result column="details_path" property="details_path"/>
+<result column="image_path" property="image_path"/>
+</association>
+</resultMap>
+	
+<select id="selectOrder" parameterType="order" resultMap="orderMap">
+select * from orders where user_id=#{user_id}
+<if test="null != pay_state and '' != pay_state">
+<if test="pay_state == '0'.toString()">
+	and pay_state='0'
+</if>
+<if test="pay_state == '1'.toString()">
+	and pay_state='1'
+</if>
+</if>
+</select>
+	
+<select id="selectOrderInfoById" parameterType="String" resultMap="orders_infoMap">
+select goods_id,goods_num from orders_info where orders_id=#{order_id}
+</select>
+
+<select id="selectGoodsById" parameterType="String" resultType="goods_info">
+select goods_id,goods_name,rel_price,details_path,image_path from goods_info where goods_id=#{goods_id}
+</select>
+</mapper>
