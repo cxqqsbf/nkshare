@@ -1,0 +1,107 @@
+use nkshare;
+CREATE TABLE `address` (
+  `user_id` varchar(45) COLLATE utf8_bin NOT NULL,
+  `address_id` varchar(45) COLLATE utf8_bin NOT NULL,
+  `name` varchar(45) COLLATE utf8_bin NOT NULL,
+  `telephone` varchar(45) COLLATE utf8_bin NOT NULL,
+  `province` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `city` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `area` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `details` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`address_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE `admin_info` (
+  `admin_id` varchar(45) NOT NULL,
+  `telephone` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `nickname` varchar(45) NOT NULL,
+  PRIMARY KEY (`admin_id`,`telephone`,`email`),
+  UNIQUE KEY `admin_id_UNIQUE` (`admin_id`),
+  UNIQUE KEY `telephone_UNIQUE` (`telephone`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `goods_categories` (
+  `goods_id` varchar(45) NOT NULL,
+  `category_id` varchar(45) NOT NULL,
+  `category_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`goods_id`,`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `goods_comment` (
+  `comment_id` varchar(45) NOT NULL,
+  `user_id` varchar(45) NOT NULL,
+  `goods_id` varchar(45) NOT NULL,
+  `comment_time` varchar(45) DEFAULT NULL,
+  `content` varchar(100) DEFAULT NULL,
+  `score` double DEFAULT NULL,
+  PRIMARY KEY (`comment_id`,`user_id`,`goods_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+drop  table if exists goods_info ;
+CREATE TABLE `goods_info` (
+  `goods_id` varchar(45) NOT NULL,
+  `goods_name` varchar(45) DEFAULT NULL,
+  `pre_price` varchar(45) DEFAULT NULL,
+  `rel_price` varchar(45) DEFAULT NULL,
+  `sales` varchar(45) DEFAULT NULL,
+  `image_path` varchar(45) DEFAULT NULL,
+  `details_path` varchar(500) DEFAULT NULL,
+  `user_id` varchar(45) NOT NULL,
+  PRIMARY KEY (`goods_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `categories` (
+  `category_id` varchar(45) NOT NULL,
+  `category_name` varchar(45) NOT NULL,
+  `parent_id` varchar(45) NOT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `orders` (
+  `order_id` varchar(45) NOT NULL,
+  `user_id` varchar(45) NOT NULL,
+  `address_id` varchar(45) NOT NULL,
+  `pay_state` varchar(45) NOT NULL,
+  `create_time` varchar(45) NOT NULL,
+  `money` varchar(45) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `orders_info` (
+  `orders_id` varchar(45) NOT NULL,
+  `goods_id` varchar(45) NOT NULL,
+  `goods_num` int(11) NOT NULL,
+  PRIMARY KEY (`orders_id`,`goods_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `scan_record` (
+  `record_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) NOT NULL,
+  `goods_id` varchar(45) NOT NULL,
+  `record_time` varchar(45) NOT NULL,
+  PRIMARY KEY (`record_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `shoppingcarts` (
+  `user_id` varchar(45) NOT NULL,
+  `goods_id` varchar(45) NOT NULL,
+  `goods_num` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`goods_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `user_info` (
+  `user_id` varchar(45) COLLATE utf8_bin NOT NULL,
+  `telephone` varchar(45) COLLATE utf8_bin NOT NULL,
+  `email` varchar(45) COLLATE utf8_bin NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `gender` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `birthday` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `image_path` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `location` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `nickname` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `score` double DEFAULT NULL,
+  PRIMARY KEY (`user_id`,`telephone`,`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
